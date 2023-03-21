@@ -1,11 +1,18 @@
 body{
     background-color:#F3E9DE;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
 }
 
 .side{
-
+    background-color:#FAF4EC ;
+    padding-bottom: 535px;
+    color:#256993;
+}
+.main{
+    color:#256993;
 }
 
-.main{
-
+h2{
+    text-align: center;
 }
