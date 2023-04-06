@@ -45,7 +45,7 @@ h2{
     margin-top: 100px;
     margin-left: 20px;
     margin-right: 20px;
-    padding-bottom: 100px;
+
 
 }
 
@@ -91,6 +91,11 @@ color:white;
 }
 
 
+/* Cancel function classes */
+
+.hideElement{
+    display:none
+}
 
 
 /* Dark mode classes */
