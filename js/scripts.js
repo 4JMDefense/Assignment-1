@@ -1,28 +1,29 @@
 //query selectors
 
-const darkModeButton = document.querySelector(".dark");
-
 const sideBar = document.querySelector(".side")
 
 const mainSelector = document.querySelector(".main")
-
-const bodySelector = document.body
 
 const aboutSelector = document.querySelector("#about")
 
 const docsSelector = document.querySelector("#docs")
 
-const inputSelector = document.querySelector("input")
+const inputSelector = document.querySelector("#input")
 
 const noteList = document.querySelector("#noteList")
+
+const boxSelector = document.querySelector(".box textarea")
+
+// button query selectors
+
+const darkModeButton = document.querySelector(".dark");
 
 const saveButton = document.querySelector(".save")
 
 const cancelButton = document.querySelector(".cancel")
 
-const boxSelector = document.querySelector(".box textarea")
-
 const newButton = document.querySelector(".new")
+
 //arrays
 
 let notesArray = []
@@ -32,7 +33,7 @@ let notesArray = []
 function darkMode ()
 {
 
-    bodySelector.classList.toggle("maindarkBG")
+    document.body.classList.toggle("maindarkBG")
     sideBar.classList.toggle("sidedarkBG")
     mainSelector.classList.toggle("whiteText")
     docsSelector.classList.toggle("whiteText")
@@ -53,28 +54,21 @@ function darkMode ()
 
 }
 
-function addToNote()
+function addToNote(event)
 {
-
-    const titleInput = document.querySelector("")
-    const noteInput = document.querySelector("inputSelector")
+    let titleInput = prompt("Enter a title")
     let note = {
-        title: titleInput.value,
-        body: noteInput.value
+        body: inputSelector.value,
+        title: titleInput
     }
+    console.log(note)
     notesArray.push(note)
-    titleInput.value = ""
-    noteInput.value = ""
     const newLi = document.createElement("li")
     newLi.textContent = `${note.title}: ${note.body}`
     noteList.appendChild(newLi)
-
+    inputSelector.value = ""
 }
 
-function cancelNote(event)
-{
-
-}
 
 function noteCreateDelete(event) {
     if (event.target.textContent == "Cancel")
@@ -90,6 +84,7 @@ function noteCreateDelete(event) {
         cancelButton.classList.remove("hideElement")
     }
 }
+
 //event listeners
 darkModeButton.addEventListener("click",darkMode)
 
@@ -98,4 +93,6 @@ saveButton.addEventListener("click",addToNote)
 cancelButton.addEventListener("click", noteCreateDelete)
 
 newButton.addEventListener("click", noteCreateDelete)
+
+
 
