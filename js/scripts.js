@@ -54,14 +54,13 @@ function darkMode ()
 
 }
 
-function addToNote(event)
+function createNote()
 {
     let titleInput = prompt("Enter a title")
     let note = {
         body: inputSelector.value,
         title: titleInput
     }
-    console.log(note)
     notesArray.push(note)
     const newLi = document.createElement("li")
     newLi.textContent = `${note.title}: ${note.body}`
@@ -70,7 +69,7 @@ function addToNote(event)
 }
 
 
-function noteCreateDelete(event) {
+function toggleInputBox(event) {
     if (event.target.textContent == "Cancel")
     {
         boxSelector.classList.add("hideElement")
@@ -88,11 +87,11 @@ function noteCreateDelete(event) {
 //event listeners
 darkModeButton.addEventListener("click",darkMode)
 
-saveButton.addEventListener("click",addToNote)
+saveButton.addEventListener("click",createNote)
 
-cancelButton.addEventListener("click", noteCreateDelete)
+cancelButton.addEventListener("click", toggleInputBox)
 
-newButton.addEventListener("click", noteCreateDelete)
+newButton.addEventListener("click", toggleInputBox)
 
 
 
